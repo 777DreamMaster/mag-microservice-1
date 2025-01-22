@@ -1,0 +1,5 @@
+application:
+  version: @project.version@
+
+server:
+  port: ${SERVER_PORT:8080}
