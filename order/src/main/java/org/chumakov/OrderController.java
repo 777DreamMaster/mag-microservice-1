@@ -1,6 +1,7 @@
 package org.chumakov;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -11,6 +12,8 @@ import java.util.Optional;
 @RequestMapping("/orders")
 class OrderController {
 
+    @Value("${application.version}")
+    private static String appVersion;
     @Autowired
     private OrderService orderService;
 
@@ -30,5 +33,10 @@ class OrderController {
     public ResponseEntity<List<Order>> getAllOrders() {
         List<Order> orders = orderService.getAllOrders();
         return ResponseEntity.ok(orders);
+    }
+
+    @GetMapping("/version")
+    public ResponseEntity<String> getVersion() {
+        return ResponseEntity.ok("Order Service Version %s}".formatted(appVersion));
     }
 }
