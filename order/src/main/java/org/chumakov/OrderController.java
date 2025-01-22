@@ -37,6 +37,6 @@ class OrderController {
 
     @GetMapping("/version")
     public ResponseEntity<String> getVersion() {
-        return ResponseEntity.ok("Order Service Version %s}".formatted(appVersion));
+        return ResponseEntity.ok("Order version %s}".formatted(appVersion));
     }
 }

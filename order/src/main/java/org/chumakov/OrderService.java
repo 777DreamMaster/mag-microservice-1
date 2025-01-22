@@ -16,17 +16,17 @@ public class OrderService {
 
     public Order createOrder(Order order) {
         Order newOrder = orderRepository.save(order);
-        log.info("Order created id={}", newOrder.getId());
+        log.info("createOrder: {}", newOrder.getId());
         return newOrder;
     }
 
     public Optional<Order> getOrder(Long id) {
-        log.info("GET Order {}", id);
+        log.info("getOrder {}", id);
         return orderRepository.findById(id);
     }
 
     public List<Order> getAllOrders() {
-        log.info("GET Orders");
+        log.info("getAllOrders");
         return orderRepository.findAll();
     }
 }

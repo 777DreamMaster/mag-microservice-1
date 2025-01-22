@@ -37,6 +37,6 @@ class PaymentController {
 
     @GetMapping("/version")
     public ResponseEntity<String> getVersion() {
-        return ResponseEntity.ok("Payment Service Version %s}".formatted(appVersion));
+        return ResponseEntity.ok("Payment version %s}".formatted(appVersion));
     }
 }
