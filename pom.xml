@@ -13,6 +13,7 @@
         <module>notification</module>
         <module>order</module>
         <module>payment</module>
+        <module>gateway</module>
     </modules>
 
 </project>

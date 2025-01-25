@@ -5,7 +5,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>org.chumakov</groupId>
-    <artifactId>mag-microservice-1-payment</artifactId>
+    <artifactId>payment</artifactId>
     <version>1.0.0</version>
 
     <properties>

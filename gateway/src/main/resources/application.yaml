@@ -1,0 +1,37 @@
+application:
+  version: @project.version@
+
+server:
+  port: ${SERVER_PORT:8080}
+
+logging:
+  level:
+    reactor:
+      netty: INFO
+    org:
+      springframework:
+        cloud:
+          gateway: TRACE
+
+spring:
+  cloud:
+    gateway:
+      routes:
+        - id: order_service
+          uri: ${ORDER_SERVICE_URL:http://localhost:8081}
+          predicates:
+            - Path=/orders/**
+          filters:
+            - RewritePath=/orders/(?<segment>.*), /${segment}
+        - id: payment_service
+          uri: ${PAYMENT_SERVICE_URL:http://localhost:8082}
+          predicates:
+            - Path=/payments/**
+          filters:
+            - RewritePath=/payments/(?<segment>.*), /${segment}
+        - id: notification_service
+          uri: ${NOTIFICATION_SERVICE_URL:http://localhost:8083}
+          predicates:
+            - Path=/notifications/**
+          filters:
+            - RewritePath=/notifications/(?<segment>.*), /${segment}
