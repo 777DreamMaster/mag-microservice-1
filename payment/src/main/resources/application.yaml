@@ -12,3 +12,18 @@ spring:
   jpa:
     hibernate:
       ddl-auto: update
+
+management:
+  server:
+    port: ${METRICS_PORT:8090}
+  endpoints:
+    web:
+      exposure:
+        include: *
+  endpoint:
+    prometheus:
+      access: unrestricted
+  prometheus:
+    metrics:
+      export:
+        enabled: true
